@@ -3,52 +3,52 @@
     "units": "feet, knots",
     "cp": [
       {
-        "meanFloodDir": 89,
-        "Bin": "22",
-        "meanEbbDir": 283,
-        "Time": "2022-02-06 01:32",
-        "Depth": "36",
-        "Velocity_Major": -0.6
+        "meanFloodDir": 329,
+        "Bin": "17",
+        "meanEbbDir": 147,
+        "Time": "2022-03-10 05:13",
+        "Depth": "12",
+        "Velocity_Major": -1.16
       },
       {
-        "meanFloodDir": 89,
-        "Bin": "22",
-        "meanEbbDir": 283,
-        "Time": "2022-02-06 01:38",
-        "Depth": "36",
-        "Velocity_Major": -0.57
+        "meanFloodDir": 329,
+        "Bin": "17",
+        "meanEbbDir": 147,
+        "Time": "2022-03-10 05:19",
+        "Depth": "12",
+        "Velocity_Major": -1.19
       },
       {
-        "meanFloodDir": 89,
-        "Bin": "22",
-        "meanEbbDir": 283,
-        "Time": "2022-02-06 01:44",
-        "Depth": "36",
-        "Velocity_Major": -0.54
+        "meanFloodDir": 329,
+        "Bin": "17",
+        "meanEbbDir": 147,
+        "Time": "2022-03-10 05:25",
+        "Depth": "12",
+        "Velocity_Major": -1.21
       },
       {
-        "meanFloodDir": 89,
-        "Bin": "22",
-        "meanEbbDir": 283,
-        "Time": "2022-02-06 01:50",
-        "Depth": "36",
-        "Velocity_Major": -0.5
+        "meanFloodDir": 329,
+        "Bin": "17",
+        "meanEbbDir": 147,
+        "Time": "2022-03-10 05:31",
+        "Depth": "12",
+        "Velocity_Major": -1.22
       },
       {
-        "meanFloodDir": 89,
-        "Bin": "22",
-        "meanEbbDir": 283,
-        "Time": "2022-02-06 01:56",
-        "Depth": "36",
-        "Velocity_Major": -0.47
+        "meanFloodDir": 329,
+        "Bin": "17",
+        "meanEbbDir": 147,
+        "Time": "2022-03-10 05:37",
+        "Depth": "12",
+        "Velocity_Major": -1.22
       },
       {
-        "meanFloodDir": 89,
-        "Bin": "22",
-        "meanEbbDir": 283,
-        "Time": "2022-02-06 02:02",
-        "Depth": "36",
-        "Velocity_Major": -0.43
+        "meanFloodDir": 329,
+        "Bin": "17",
+        "meanEbbDir": 147,
+        "Time": "2022-03-10 05:43",
+        "Depth": "12",
+        "Velocity_Major": -1.23
       }
     ]
   }

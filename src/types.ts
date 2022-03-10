@@ -1,9 +1,4 @@
-// To parse this data:
-//
-//   import { Convert, Station } from "./file";
-//
-//   const station = Convert.toStation(json);
-
+// generated/obtained from quicktype.io
 export interface MetadataResult {
   count: number;
   units: string;
@@ -45,4 +40,26 @@ export class Convert {
   public static stationToJson(value: MetadataResult): string {
     return JSON.stringify(value);
   }
+
+  public static toCurrentPredictions(json: string): CurrentPredictionsResult {
+    return JSON.parse(json);
+  }
+}
+
+export interface CurrentPredictionsResult {
+  current_predictions: CurrentPredictions;
+}
+
+export interface CurrentPredictions {
+  units: string;
+  cp: CurrentPrediction[];
+}
+
+export interface CurrentPrediction {
+  meanFloodDir: number;
+  Bin: string;
+  meanEbbDir: number;
+  Time: string;
+  Depth: string;
+  Velocity_Major: number;
 }
