@@ -1,0 +1,55 @@
+{
+  "current_predictions": {
+    "units": "feet, knots",
+    "cp": [
+      {
+        "meanFloodDir": 89,
+        "Bin": "22",
+        "meanEbbDir": 283,
+        "Time": "2022-02-06 01:32",
+        "Depth": "36",
+        "Velocity_Major": -0.6
+      },
+      {
+        "meanFloodDir": 89,
+        "Bin": "22",
+        "meanEbbDir": 283,
+        "Time": "2022-02-06 01:38",
+        "Depth": "36",
+        "Velocity_Major": -0.57
+      },
+      {
+        "meanFloodDir": 89,
+        "Bin": "22",
+        "meanEbbDir": 283,
+        "Time": "2022-02-06 01:44",
+        "Depth": "36",
+        "Velocity_Major": -0.54
+      },
+      {
+        "meanFloodDir": 89,
+        "Bin": "22",
+        "meanEbbDir": 283,
+        "Time": "2022-02-06 01:50",
+        "Depth": "36",
+        "Velocity_Major": -0.5
+      },
+      {
+        "meanFloodDir": 89,
+        "Bin": "22",
+        "meanEbbDir": 283,
+        "Time": "2022-02-06 01:56",
+        "Depth": "36",
+        "Velocity_Major": -0.47
+      },
+      {
+        "meanFloodDir": 89,
+        "Bin": "22",
+        "meanEbbDir": 283,
+        "Time": "2022-02-06 02:02",
+        "Depth": "36",
+        "Velocity_Major": -0.43
+      }
+    ]
+  }
+}
