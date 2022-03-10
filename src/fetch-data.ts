@@ -1,6 +1,10 @@
-import { writeFileSync } from "fs";
+import { writeFileSync } from "node:fs";
 
-import fetch from "node-fetch";
+import axios from "axios";
+
+// @ts-ignore
+import GeoJSON from "geojson";
+
 import { MetadataResult } from "./types";
 
 const apiUrl =
@@ -16,21 +20,19 @@ const metadataUrl =
   "https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations.json?type=currentpredictions&units=english";
 
 const getStationData = async () => {
-  const response = await fetch(getApiUrl(stationIds[0]));
-  const data = await response.json();
-  console.log("data: ", data);
+  const response = await axios.get(getApiUrl(stationIds[0]));
+  console.log("data: ", response.data);
 };
 
-const getMetadata = async () => {
-  const response = await fetch(metadataUrl);
-  const data = (await response.json()) as MetadataResult;
+const getMetadata = async (): Promise<MetadataResult> => {
+  const response = await axios.get(metadataUrl);
 
-  return data;
+  return response.data;
   // console.log("data.stations.length: ", data.stations.length);
 };
 
 const getMetadataCsv = async () => {
-  let result = "id,point_latitude,point_longitude,value";
+  let result = "id,point_latitude,point_longitude,value\n";
   const stations = (await getMetadata()).stations;
   for (const s of stations) {
     result += `${s.id},${s.lat},${s.lng},1\n`;
@@ -38,11 +40,18 @@ const getMetadataCsv = async () => {
   return result;
 };
 
-const writeMetadataCsv = async () => {
-  const data = await getMetadataCsv();
-
-  writeFileSync("blah.csv", data);
+const getMetadataGeojson = async () => {
+  const stations = (await getMetadata()).stations;
+  const result = GeoJSON.parse(stations, { Point: ["lat", "lng"] });
+  console.log(result);
+  return result;
 };
 
-// getStationData();
-writeMetadataCsv();
+const writeMetadata = async () => {
+  const csvData = await getMetadataCsv();
+  const geojson = await getMetadataGeojson();
+  writeFileSync("data/stations.csv", csvData);
+  writeFileSync("data/stations_geo.json", JSON.stringify(geojson, null, 2));
+};
+
+writeMetadata();
