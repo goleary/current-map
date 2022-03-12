@@ -18,10 +18,10 @@ const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
 app.use(cors());
 app.use(errorHandler);
 
-app.get("/", async (req, res) => {
+app.get("/predictions", async (req, res) => {
   console.log("request received");
   const start = new Date();
-  const result = await currentApi.getStationDataWithPredictions();
+  const result = await currentApi.getStationDataWithPredictions(req.query);
   console.log(`request took ${Date.now() - start.getTime()}ms`);
   res.send(result);
 });

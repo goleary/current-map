@@ -32,25 +32,31 @@ class CurrentApi {
     return stationMetadata;
   }
 
-  async getStationData(stationId: string) {
+  async getStationData(stationId: string, params?: Object) {
+    const defaultParams = {
+      date: "latest",
+      station: stationId,
+      product: "currents_predictions",
+      time_zone: "lst",
+      interval: 30,
+      units: "english",
+      format: "json",
+    };
     try {
       const response = await this.client.get(`/api/prod/datagetter`, {
         timeout: 30000,
         params: {
-          date: "latest",
-          station: stationId,
-          product: "currents_predictions",
-          time_zone: "lst",
-          interval: 6,
-          units: "english",
-          format: "json",
+          ...defaultParams,
+          ...params,
         },
       });
       return response.data;
     } catch (error) {}
   }
 
-  async getStationDataWithPredictions(): Promise<StationWithPrediction[]> {
+  async getStationDataWithPredictions(
+    params?: Object
+  ): Promise<StationWithPrediction[]> {
     const { stations: rawStations } = await this.getMetaData();
 
     let total = 0,
@@ -59,6 +65,7 @@ class CurrentApi {
 
     const promises: Promise<any>[] = [];
     const stations: Station[] = [];
+    const stationIdSet = new Set<string>();
     let numStations = 0;
     for (const s of rawStations) {
       if (!s.id.startsWith("P")) {
@@ -69,11 +76,15 @@ class CurrentApi {
         // only interested in non "subordinate" stations for now.
         continue;
       }
+      if (stationIdSet.has(s.id)) {
+        continue;
+      }
 
-      promises.push(this.getStationData(s.id));
+      promises.push(this.getStationData(s.id, params));
       stations.push(s);
+      stationIdSet.add(s.id);
       numStations++;
-      if (numStations > 50) {
+      if (numStations > 100) {
         break;
       }
     }
