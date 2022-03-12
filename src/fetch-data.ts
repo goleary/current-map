@@ -11,9 +11,8 @@ import {
   CurrentPredictions,
   MetadataResult,
   Station,
-} from "./types";
+} from "../server/src/types";
 
-// TODO: enable pulling multiple
 type StationWithPrediction = Pick<Station, "lat" | "lng" | "name" | "id"> & {
   prediction: CurrentPrediction;
 };
