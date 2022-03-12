@@ -2,7 +2,7 @@ import express, { ErrorRequestHandler } from "express";
 import currentApi from "./clients/currents";
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
 
 const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
   console.error("Fatal request error");

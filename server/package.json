@@ -7,7 +7,7 @@
     "build": "tsc",
     "dev:start": "npm-run-all build start",
     "dev": "nodemon --watch src -e ts,ejs --exec npm run dev:start",
-    "start": "node .",
+    "start": "cross-env PORT=3000 node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Gabe O'Leary",
@@ -18,6 +18,7 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
+    "cross-env": "^7.0.3",
     "nodemon": "^2.0.15",
     "npm-run-all": "^4.1.5",
     "typescript": "^4.6.2"
