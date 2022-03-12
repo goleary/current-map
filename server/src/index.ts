@@ -1,4 +1,6 @@
 import express, { ErrorRequestHandler } from "express";
+import cors from "cors";
+
 import currentApi from "./clients/currents";
 
 const app = express();
@@ -13,6 +15,7 @@ const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
   res.status(500).send();
 };
 
+app.use(cors());
 app.use(errorHandler);
 
 app.get("/", async (req, res) => {
