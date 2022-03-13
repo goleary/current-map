@@ -34,7 +34,6 @@ class CurrentApi {
 
   async getStationData(stationId: string, params?: Object) {
     const defaultParams = {
-      date: "latest",
       station: stationId,
       product: "currents_predictions",
       time_zone: "lst",
