@@ -1,0 +1,4 @@
+[[redirects]]
+  from="/current-map/*"
+  to="/:splat"
+  status=200
