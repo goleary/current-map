@@ -66,6 +66,7 @@ class CurrentApi {
     const stations: Station[] = [];
     const stationIdSet = new Set<string>();
     let numStations = 0;
+    const MAX_STATIONS = 200;
     for (const s of rawStations) {
       if (!s.id.startsWith("P")) {
         // only interested in pacific stations for now.
@@ -83,7 +84,7 @@ class CurrentApi {
       stations.push(s);
       stationIdSet.add(s.id);
       numStations++;
-      if (numStations > 100) {
+      if (numStations > MAX_STATIONS) {
         break;
       }
     }
