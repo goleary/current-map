@@ -6,6 +6,7 @@ import dateFormat from "dateformat";
 import { StationWithPrediction } from "./types";
 import StationMarker from "./components/StationMarker";
 import Controls from "./components/Controls";
+import Legend from "./components/Legend";
 
 function App() {
   const [stations, setStations] = useState<StationWithPrediction[]>([]);
@@ -52,6 +53,7 @@ function App() {
           <StationMarker key={s.id} {...s} index={sliderValue} />
         ))}
       </MapContainer>
+      <Legend />
       <Controls
         dates={dates}
         sliderValue={sliderValue}

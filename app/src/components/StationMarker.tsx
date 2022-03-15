@@ -6,6 +6,7 @@ import dateFormat from "dateformat";
 
 import { StationWithPrediction } from "../types";
 import "./station-icon.css";
+import { LEGEND_COLORS, VELOCITY_BREAK_POINTS } from "./Legend";
 
 const getIconHtml = (rotation: number, fill = "black") => {
   return `
@@ -34,13 +35,14 @@ const StationMarker: React.FC<StationWithPrediction & { index: number }> = ({
       : prediction.meanEbbDir;
   const velocity = Math.abs(prediction.Velocity_Major);
   const date = new Date(prediction.Time);
-  let color = "black";
-  if (velocity > 7) {
-    color = "red";
-  } else if (velocity > 3) {
-    color = "yellow";
-  } else if (velocity > 1) {
-    color = "green";
+
+  let color = LEGEND_COLORS[3];
+  if (velocity < VELOCITY_BREAK_POINTS[1]) {
+    color = LEGEND_COLORS[0];
+  } else if (velocity < VELOCITY_BREAK_POINTS[2]) {
+    color = LEGEND_COLORS[1];
+  } else if (velocity < VELOCITY_BREAK_POINTS[3]) {
+    color = LEGEND_COLORS[2];
   }
   return (
     <Marker
