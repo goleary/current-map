@@ -1,11 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
+
 import "leaflet/dist/leaflet.css";
+
+import splitbee from "@splitbee/web";
 
 import "./index.css";
 
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+
+splitbee.init();
 
 ReactDOM.render(
   <React.StrictMode>
