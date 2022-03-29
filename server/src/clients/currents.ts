@@ -127,7 +127,12 @@ class CurrentApi {
           lat: stationData.lat,
           lng: stationData.lng,
           id: stationData.id,
-          predictions,
+          predictions: predictions.map((p) => ({
+            ...p,
+            // Safari doesn't support constructing a date from the format
+            // returned by NOAA's API
+            Time: p.Time.replace(" ", "T"),
+          })),
         });
         withPrediction++;
       }
