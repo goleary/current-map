@@ -88,6 +88,7 @@ class CurrentApi {
         break;
       }
     }
+    let expectedNumPredictions: number;
     const results = await Promise.allSettled(promises);
     for (let i = 0; i < results.length; i++) {
       const stationData = stations[i];
@@ -111,6 +112,16 @@ class CurrentApi {
       ).cp;
 
       if (predictions instanceof Array) {
+        if (!expectedNumPredictions) {
+          // TODO: certainly a better way of doing this than chosing the num of
+          // stations from the first result
+          expectedNumPredictions = predictions.length;
+        } else if (predictions.length !== expectedNumPredictions) {
+          console.warn(
+            `unexpected number of predicitions for station: ${stationData.id}`
+          );
+          continue;
+        }
         stationsWithPredictions.push({
           name: stationData.name,
           lat: stationData.lat,
