@@ -9,7 +9,7 @@ const Legend: React.FC = () => {
       style={{
         position: "absolute",
         margin: "auto",
-        top: 24,
+        top: "20vh",
         right: 24,
         zIndex: 400,
         padding: 8,
@@ -18,8 +18,12 @@ const Legend: React.FC = () => {
         borderRadius: 8,
         display: "flex",
         flexDirection: "column",
+        maxWidth: 120,
       }}
     >
+      <div style={{ fontSize: 18, padding: "12px 0 8px", textAlign: "center" }}>
+        Predicted current speed
+      </div>
       {LEGEND_COLORS.map((color, i) => (
         <div
           style={{
@@ -27,6 +31,7 @@ const Legend: React.FC = () => {
             flexDirection: "row",
             alignItems: "center",
           }}
+          key={i}
         >
           <div
             style={{
@@ -42,6 +47,12 @@ const Legend: React.FC = () => {
           {` knots`}
         </div>
       ))}
+      <div style={{ fontSize: 16, padding: "12px 0 8px", textAlign: "center" }}>
+        built by{" "}
+        <a href="/" style={{ whiteSpace: "nowrap" }}>
+          Gabe O'Leary
+        </a>
+      </div>
     </div>
   );
 };

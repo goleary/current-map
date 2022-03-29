@@ -10,7 +10,9 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-splitbee.init();
+if (process.env.NODE_ENV === "production") {
+  splitbee.init();
+}
 
 ReactDOM.render(
   <React.StrictMode>
